@@ -1,0 +1,40 @@
+{%extends "blog/base.html"%}{% block content %}
+{% comment %} views.pyの"posts"に渡された値をfor分で出力する {% endcomment %}
+    <h1　class="title">
+        {{post.title}}<br>
+    </h1>
+    <small>Posted_at {{post.posted_date}}</small>
+    <p>{{post.slug}}</p>
+    <p>{{post.description}}</p>
+    
+    {% comment %} コメントされたものを表示 {% endcomment %}
+    <h2 class ="subtitle">コメント</h2>
+    {% for comment in comments.all %}
+        <div class="media-content">
+           <div class="media-body">
+               <p>
+                   <strong>
+                       {{comment.name}}
+                       <small>
+                           {{comment.posted_date}}
+                       </small>
+                   </strong>
+                   
+               </p>
+           </div>
+        </div>
+    {% endfor %}
+    {% comment %} コメント投稿エリア {% endcomment %}
+    <h2 class="subtitle"コメントを追加></h2>
+    <form action="." method="post">
+    {%csrf_token%}
+    {{form.as_p}} 
+    {% comment %} as_p == pタグで囲む。pの部分はhtmlで自由に設定可能 {% endcomment %}
+        <div class="field">
+            <div class="cotrol">
+                <button class="button is-danger">送信</buton>
+            </div>
+        </div>
+    </form>
+    
+{%endblock%}
