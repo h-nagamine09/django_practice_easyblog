@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testブログ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <nav class="navbar is-danger">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                <strong>Tutrial</strong>
+        </div>
+    </nav>
+    <section>
+        <div class="containder">
+            {% block content%}
+            {% endblock %}
+        </div>
+    </section>
+</body>
+</html>
